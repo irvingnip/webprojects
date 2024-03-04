@@ -1,0 +1,656 @@
+/* general style */
+html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+html::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/Norwich_Skyline.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -1;
+    filter: blur(1px) saturate(130%) brightness(120%);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+.sideNav{
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    height: 100%;
+    z-index: 1;
+    position: fixed;
+    background-color:#083d77;
+    text-align: center;
+    font-family: var (--font);
+    font-size: x-large;
+    overflow: auto;
+}
+
+.sideNav ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.sideNav li{
+    margin: 10px 0;
+}
+
+.sideNav a{
+    color:#ad8632;
+    text-decoration: none;
+}
+
+.sideNav a:hover{
+    background-color:none;
+    color: white;
+}
+
+.nav_active {
+    background-color:#fbeee0;
+    color: white;
+    border-radius: 5px;
+  }
+
+.logo{
+    background-color:#087ca7;
+    width:80%;
+    max-width:100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    border: solid 2px black;
+}
+
+header{
+    font-family: 'Dancing Script', normal;
+    font-size:xx-large;
+    text-align:center;
+    margin-top: -20px;
+    width:100%;
+    word-spacing: 40px;
+    padding: 10px;
+    color: black;
+}
+
+/* style for the reception_home page */
+.main_container{
+    padding: 20px;
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20%;
+}
+
+.home_container{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 8%;
+}
+
+/* the calendar codes are adapted from  */
+/* https://ide.geeksforgeeks.org/online-html-editor/1d5776d1-1c8a-410a-9294-e59ea93dbd0d */
+
+.calendar_container {
+    background: #FFFAFA;
+    font-family:"Tilt Neon", sans-serif;
+    flex: 1;
+    width: 750px;
+    min-block-size: 520px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.calendar_header {
+    padding: 10px 50px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.calendar_navigation {
+    display: flex;
+}
+
+#calendar_prev, #calendar_next{
+    height: 38px;
+    width: 38px;
+    cursor: pointer;
+    line-height: 38px;
+    border-radius: 50%;
+    user-select: none;
+    font-size: 1.9rem;
+}
+
+.calendar_navigation span:last-child {
+    margin-right: -10px;
+}
+
+.calendar_navigation span:hover {
+    background: #568ea3;
+}
+
+.calendar_current_date {
+    font-weight: 500;
+    font-size: 1.45rem;
+}
+
+.calendar_body {
+    padding: 1px 30px 5px 1px;
+}
+
+.calendar_body ul {
+    list-style: none;
+    flex-wrap: wrap;
+    display: flex;
+    text-align: center;
+}
+
+.calendar_body .calendar_dates {
+    margin-bottom: 10px;
+}
+
+.calendar_body li {
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+    color: #414141;
+}
+
+.calendar_body .calendar_weekdays li {
+    cursor: default;
+    font-weight: 500;
+}
+
+.calendar_body .calendar_dates li {
+    margin-top: 30px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.calendar_dates li.inactive {
+    color: #aaa;
+}
+
+.calendar_dates li.active {
+    color: #fff;
+}
+
+.calendar_dates li::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.calendar_dates li.active::before {
+    background: #087ca7;
+}
+
+.calendar_dates li:not(.active):hover::before {
+    background: #e4e1e1;
+}
+
+/* style for the query table on the reception_home page */
+.roomtable_container{
+    font-family:"Tilt Neon", sans-serif;
+    text-align: center;
+    max-width: 70%;
+    height: fit-content;
+    margin-left: 15px;
+    margin-right: auto;
+}
+
+#room_availability_table{
+    width:80%;
+    border-collapse: collapse;
+}
+
+#room_availability_table th{
+    background-color:#087ca7;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#room_availability_table td{
+    background-color: #FFFAFA;
+    padding: 10px;
+    border: 1px groove #FFFAFA;
+    cursor: pointer;    
+    border-radius: 10px;
+}
+
+/* style for the room bookings page */
+.booking_container{
+    padding: 20px;
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20%;
+}
+
+.booking_content{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.customer,.booking,.stay{
+    margin-top: 10%;
+    margin-left: -30px;
+}
+
+.b_accordion{
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    border-radius: 10px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    padding: 10px;
+    width: 60%;
+    margin-top: 8%;
+    margin-bottom: 8px;
+    border: none;
+    align-items: center;
+    text-align: center;
+    outline: none;
+    font-size: 30px;
+    transition: 0.4s;
+}
+  
+.b_accordion.active, .b_accordion:hover {
+    background-color:#087ca7; 
+}
+
+.customerinfo,.bookinginfo,.stayinfo{
+    color:#fff;
+    font-size:large;
+    font-family: "Tilt Neon", sans-serif;
+    padding: 20px;
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    margin-right: 5%;
+}
+
+.booking_panel{
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 80%;
+    margin-left: -14%;
+    color: #fff;
+    background-color: rgba(0,0,0,.7);
+    -webkit-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+}
+
+input[type=text]{
+    background: rgba(200, 255, 255, 0.2);
+    font-size: larger;
+    color:#fff;
+    padding: 1px;
+    height: 30px;
+    margin: 5px;
+    border: 1px;
+    box-shadow:1px 1px 10px 4px rgba(0,0,0,0.06);
+    border-radius: 5px;
+    width: 100%;
+}
+
+select{
+    background: white;
+    font-size: large;
+    padding: 10px;
+    margin: 5px;
+    border: 0;
+    box-shadow:0 0 10px 4px rgba(0,0,0,0.06);
+    border-radius: 5px;
+    width: 100%;
+}
+
+#datein, #dateout{
+    background: white;
+    font-size: large;
+    padding: 10px;
+    margin: 5px;
+    border: 0;
+    box-shadow:0 0 10px 4px rgba(0,0,0,0.06);
+    border-radius: 5px;
+    width: 96%;
+}
+
+.button_container{
+    padding: 10px;
+    display: flex;
+    margin-top: 20%;
+    margin-left: 30%;
+}
+/* the button is borrowed from */
+/* https://getcssscan.com/css-buttons-examples */
+.btn_confirm{
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    border-radius: 30px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    margin-left: 30%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btn_confirmver{
+    background-color: white;
+    color: black;
+}
+
+.popup_container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    text-align: center;    
+    transform: translate(-50%, -50%);
+    background-color: #f5f5f5;
+    color: black;
+    padding: 10px;
+    z-index: 1000;
+    border: solid;
+}
+
+/* style for reception_desk age */
+.desk_container{
+    color:#fff;
+    font-size:larger;
+    font-family: "Tilt Neon", sans-serif;
+    padding: 20px;
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    margin-left: 20%;
+}
+
+.accordion_containner{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion{
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    border-radius: 10px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    padding: 10px;
+    width: 25%;
+    margin-left: 25%;
+    margin-top: 8%;
+    margin-bottom: 8px;
+    border: none;
+    align-items: center;
+    text-align: center;
+    outline: none;
+    font-size: 30px;
+    transition: 0.4s;
+}
+  
+.accordion.active, .accordion:hover {
+    background-color:#087ca7; 
+}
+  
+.panel{
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 40%;
+    margin-left: 16%;
+    color: #fff;
+    background-color: rgba(0,0,0,.7);
+    -webkit-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+}
+
+/* the search box is adapted from */
+/* https://codepen.io/ahmadbassamemran/pen/rNjMXqg */
+.searchbox{
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+}
+
+#checkin_search,#outstanding_search{
+    height: 40px;
+    width: 40px;
+    border-style: none;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 25px;
+    transition: all .5s ease-in-out;
+    background:#087ca7;
+    color:#fff;
+}
+
+#checkin_search::placeholder, 
+#checkout_search1::placeholder,
+#checkout_search2::placeholder{
+    color:rgba(255,255,255,.5);
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+
+#btn_checkin, #btn_outstanding{
+    width: 50px;
+    background-color:#fbeee0;
+    height: 50px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: relative;
+    color:black;
+    pointer-events: painted;  
+}
+
+#checkin_search:focus ~ #checkin_search,
+#outstanding_search1:focus ~ #outstanding_search{
+    width: 100px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom:1px solid rgba(255,255,255,.5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  }
+
+#checkin_search:focus,
+#outstanding_search:focus{
+    width: 300px;
+    border-radius: 10px;
+    color: white;
+    /* background-color: transparent; */
+    border-bottom:1px solid rgba(255,255,255,.5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+.checkininfo, .checkoutinfo,
+.paymentInfo{
+    color:#fff;
+    font-size:large;
+    font-family: "Tilt Neon", sans-serif;
+    padding: 20px;
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15%;
+}
+
+#roomclass, #roomstatus{
+    background-color: white;
+    -webkit-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+}
+
+#checkin_confirm,#checkout_confirm,
+#pay_confirm,#close_popup{
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    border-radius: 30px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 150px;
+}
+
+/* style for restaurant */
+.r_container{
+    padding: 20px;
+    display: flex;
+    width: 60%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+    font-size: medium;
+    color: black;
+}
+
+.restaurant_container{
+    margin-right: 20px;
+}
+
+/* style for activities */
+.activities_container{
+    padding: 20px;
+    display: flex;
+    width: 60%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+    font-size: medium;
+    color: black;
+}
+
+.gym_container{
+    margin-right: 20px;
+}
+
+/* style for housekeeping */
+.house_container{
+    padding: 20px;
+    display: flex;
+    width: 60%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+    font-size: medium;
+    color: white;
+}
+
+.discussion-board {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,.7);
+    -webkit-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+}
+
+.post {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.post-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.post-content {
+    line-height: 1.6;
+}
+
+.comment {
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 2px solid #ccc;
+}
+
+/* style for footer */
+.footer{
+    font-size: 0.7em;
+    text-align: center;
+    color: #fff9e8;
+    padding: 10px 5px 5px 40px;
+    bottom: 0;
+    align-items: center;
+    position: fixed;
+    z-index: 9999;
+}
+
+
